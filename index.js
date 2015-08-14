@@ -22,7 +22,19 @@ app.use(express.static(__dirname + '/public/'));
 
 //routes
 app.get('/',function(req,rsp){
-	rsp.render('home');
+	rsp.render('home',{
+		pageTestScript: 'qa/tests-home.js'
+	});
+});
+
+app.get('/about',function(res,rsp){
+	rsp.render('about',{
+		pageTestScript: '/qa/tests-about.js'
+	});
+});
+
+app.get('/contact',function(req,rsp){
+	rsp.render('contact');
 });
 
 app.use(function(req,rsp,next){
